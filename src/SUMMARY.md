@@ -27,6 +27,7 @@
     - [Part Ⅳ: Semantic Fuzzing](fuzz/books/part_4/index.md)
       - [Fuzzing with Constraints](fuzz/books/part_4/fuzz_with_constraints.md)
       - [Mining Input Grammars](fuzz/books/part_4/mining_input_grammars.md)
+      - [Tracing Information Flow](fuzz/books/part_4/information_flow.md)
       - [Concolic Fuzzing](fuzz/books/part_4/concolic_fuzz.md)
       - [Symbolic Fuzzing](fuzz/books/part_4/symbolic_fuzz.md)
       - [Mining Function Specifications](fuzz/books/part_4/mining_function.md)

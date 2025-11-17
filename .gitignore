@@ -2,3 +2,5 @@ book/
 target/
 linkcheck/
 linkchecker/
+__pycache__/
+.venv/
