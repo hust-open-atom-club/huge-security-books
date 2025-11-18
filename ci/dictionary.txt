@@ -291,6 +291,7 @@ liballoc
 libc
 libcollections
 libcore
+LibFuzzer
 libpanic
 librarys
 libreoffice
