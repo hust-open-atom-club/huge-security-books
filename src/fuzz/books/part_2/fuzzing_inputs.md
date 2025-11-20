@@ -505,7 +505,7 @@ airports.py: error: Invalid index type "int" for "Dict[str, str]"; expected type
 - Runner.UNRESOLVED —— 测试既未通过又未失败，这种情况发生在程序无法运行时，例如输入无效
 
 ``` py
-{{#include ../codes/Fuzzer.py:5:21}}
+{{#include ../codes/py_fuzz/Fuzzer.py:8:22}}
 ```
 
 作为基类，Runner 主要为构建更复杂的运行器提供接口。更具体地说，我们引入继承自该超类的子类，以便添加额外方法或重写继承的方法。
@@ -513,7 +513,7 @@ airports.py: error: Invalid index type "int" for "Dict[str, str]"; expected type
 PrintRunner 就是这种子类的一个例子：它直接打印所有接收到的内容，并重写了继承的 run() 方法。这是许多场景中的默认运行器。
 
 ``` py
-{{#include ../codes/Fuzzer.py:24:30}}
+{{#include ../codes/py_fuzz/Fuzzer.py:25:31}}
 
 p = PrintRunner()
 (result, outcome) = p.run("Some input")
@@ -522,7 +522,7 @@ p = PrintRunner()
 ProgramRunner 类则将输入发送到程序的标准输入。程序在创建 ProgramRunner 对象时指定。
 
 ``` py
-{{#include ../codes/Fuzzer.py:33:62}}
+{{#include ../codes/py_fuzz/Fuzzer.py:34:63}}
 
 cat = ProgramRunner(program="cat")
 cat.run("hello")
@@ -531,7 +531,7 @@ cat.run("hello")
 下方是处理二进制（即非文本）输入和输出的一个变体。
 
 ``` py
-{{#include ../codes/Fuzzer.py:65:72}}
+{{#include ../codes/py_fuzz/Fuzzer.py:85:92}}
 ```
 
 ![program runner hierarchy](../../../images/fuzz/books/program_runner.png)
@@ -541,13 +541,13 @@ cat.run("hello")
 现在让我们定义一个能将数据实际馈送给消费者的模糊器。模糊器的基类提供一个关键方法 fuzz() 用于生成输入。run() 函数随后将 fuzz() 产生的输入发送给运行器并返回结果；runs() 则按给定次数重复执行此过程。
 
 ``` py
-{{#include ../codes/Fuzzer.py:76:95}}
+{{#include ../codes/py_fuzz/Fuzzer.py:95:114}}
 ```
 
 默认情况下，Fuzzer 对象功能有限，因为其 fuzz() 函数仅是一个抽象占位符。然而，子类 RandomFuzzer 实现了上文 fuzzer() 函数的功能，并增加了 min_length 参数以指定最小长度。
 
 ``` py
-{{#include ../codes/Fuzzer.py:98:116}}
+{{#include ../codes/py_fuzz/Fuzzer.py:117:135}}
 ```
 
 通过 RandomFuzzer，我们现在可以创建一个模糊器，其配置只需在创建时指定一次即可。

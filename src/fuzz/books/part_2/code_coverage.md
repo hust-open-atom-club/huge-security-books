@@ -18,7 +18,7 @@
 函数 cgi_decode() 的功能是接收经过此类编码的字符串，并将其解码还原为原始形式。我们的实现复现了[Pezzè 等人，2008 年](http://ix.cs.uoregon.edu/~michal/book/)中的代码（该实现甚至包含了原代码中的缺陷——不过我们暂时不会在此处揭示它们）。
 
 ``` py
-{{#include ../codes/Coverage.py:2:33}}
+{{#include ../codes/py_fuzz/Coverage.py:101:132}}
 ```
 
 如果我们想要系统性地测试 cgi_decode() 函数，应该如何进行？测试领域文献中区分了两种推导测试用例的方法：黑盒测试与白盒测试。
@@ -89,7 +89,7 @@ cgi_decode("a+b")
 我们利用追踪函数来简单报告当前执行的代码行，该信息通过 frame 参数获取。
 
 ``` py
-{{#include ../codes/Coverage.py:38:55}}
+{{#include ../codes/py_fuzz/Coverage.py:134:152}}
 ```
 
 详细的代码介绍在原文中有介绍，请参考 [Tracing-Executions](https://www.fuzzingbook.org/html/Coverage.html#Tracing-Executions)。此处不再着重介绍。

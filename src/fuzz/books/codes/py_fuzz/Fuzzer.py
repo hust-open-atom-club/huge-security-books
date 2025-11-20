@@ -1,6 +1,6 @@
 import random
 import subprocess
-from typing import Any, List, Tuple, Union
+from typing import Any, Callable, List, Tuple, Union
 
 
 Outcome = str
@@ -63,6 +63,25 @@ class ProgramRunner(Runner):
         return (result, outcome)
     
 
+class FunctionRunner(Runner):
+    def __init__(self, function: Callable) -> None:
+        """Initialize.  `function` is a function to be executed"""
+        self.function = function
+
+    def run_function(self, inp: str) -> Any:
+        return self.function(inp)
+
+    def run(self, inp: str) -> Tuple[Any, str]:
+        try:
+            result = self.run_function(inp)
+            outcome = self.PASS
+        except Exception:
+            result = None
+            outcome = self.FAIL
+
+        return result, outcome
+    
+
 class BinaryProgramRunner(ProgramRunner):
     def run_process(self, inp: str = "") -> subprocess.CompletedProcess:
         """Run the program with `inp` as input.  
@@ -114,3 +133,12 @@ class RandomFuzzer(Fuzzer):
             out += chr(random.randrange(self.char_start,
                                         self.char_start + self.char_range))
         return out
+
+def fuzzer(max_length: int = 100, char_start: int = 32, char_range: int = 32) -> str:
+    """A string of up to `max_length` characters
+       in the range [`char_start`, `char_start` + `char_range`)"""
+    string_length = random.randrange(0, max_length + 1)
+    out = ""
+    for i in range(0, string_length):
+        out += chr(random.randrange(char_start, char_start + char_range))
+    return out

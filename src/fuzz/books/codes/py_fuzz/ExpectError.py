@@ -3,7 +3,7 @@ import sys
 
 from types import TracebackType
 from typing import Any, Optional, Union
-from Timeout import Timeout
+from py_fuzz.Timeout import Timeout
 
 class ExpectError:
     """Execute a code block expecting (and catching) an error."""
