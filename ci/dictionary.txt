@@ -284,6 +284,8 @@ JoinHandle
 Kay's
 kinded
 Klabnik
+knighter
+KNighter
 Krycho
 lang
 LastWriteTime
@@ -510,6 +512,7 @@ SocialPost
 someproject
 SomeType
 someusername
+SOSP
 SPDX
 spdx
 SpreadsheetCell

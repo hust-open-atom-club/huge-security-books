@@ -9,6 +9,7 @@
 - [Fuzz](fuzz/index.md)
   - [The Fuzzing Book](fuzz/books/index.md)
   - [AFL](fuzz/afl/index.md)
+- [Papers](papers/index.md)
 
 ## 项目愿景
 

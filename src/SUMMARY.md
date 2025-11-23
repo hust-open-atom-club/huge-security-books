@@ -45,3 +45,6 @@
   - [AFL](fuzz/afl/index.md)
     - [Historical](fuzz/afl/historical_notes.md)
     - [Technical Detailed](fuzz/afl/technical_details.md)
+- [Papers](papers/index.md)
+  - [Security](papers/security/index.md)
+    - [KNighter SOSP'25](papers/security/knighter.md)
