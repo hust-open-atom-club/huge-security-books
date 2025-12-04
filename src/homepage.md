@@ -9,6 +9,8 @@
 - [Fuzz](fuzz/index.md)
   - [The Fuzzing Book](fuzz/books/index.md)
   - [AFL](fuzz/afl/index.md)
+- [Hardware Security](hw/index.md)
+  - [ARM](hw/arm/index.md)
 - [Papers](papers/index.md)
 
 ## 项目愿景
