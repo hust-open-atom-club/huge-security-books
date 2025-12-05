@@ -48,6 +48,7 @@
 - [Hardware Security](hw/index.md)
   - [ARM](hw/arm/index.md)
       - [Pointer Authentication Code](hw/arm/pac.md)
+      - [Memory Tagging Extension](hw/arm/mte.md)
 - [Papers](papers/index.md)
   - [Security](papers/security/index.md)
     - [KNighter SOSP'25](papers/security/knighter.md)
