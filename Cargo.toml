@@ -1,9 +1,9 @@
 [workspace]
 members = [
-    "packages/tools",
+    "mdbook-check/packages/tools",
 ]
 default-members = [
-    "packages/tools",
+    "mdbook-check/packages/tools",
 ]
 resolver = "2"
 exclude = [

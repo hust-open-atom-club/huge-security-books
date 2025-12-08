@@ -7,6 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
+      with:
+        submodules: true
     - name: Update rustup
       run: rustup self update
     - name: Install Rust
@@ -32,16 +34,18 @@ jobs:
     # sure all the crates can be resolved when running the tests.
     - name: Build `trpl` crate
       run: |
-        cd packages/trpl
+        cd mdbook-check/packages/trpl
         cargo build
     - name: Run tests
       run:
-        mdbook test --library-path packages/trpl/target/debug/deps
+        mdbook test --library-path mdbook-check/packages/trpl/target/debug/deps
   package_tests:
     name: Run package tests
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
+      with:
+        submodules: true
     - name: Update rustup
       run: rustup self update
     - name: Install Rust
@@ -53,7 +57,7 @@ jobs:
       run: |
         cargo test
     - name: Run `mdbook-trpl` package tests
-      working-directory: packages/mdbook-trpl
+      working-directory: mdbook-check/packages/mdbook-trpl
       run: |
         cargo test
   lint:
@@ -76,7 +80,7 @@ jobs:
         curl -sSL https://github.com/rust-lang/mdBook/releases/download/v0.4.45/mdbook-v0.4.45-x86_64-unknown-linux-gnu.tar.gz | tar -xz --directory=bin
         echo "$(pwd)/bin" >> "${GITHUB_PATH}"
     - name: Install mdbook-trpl binaries
-      run: cargo install --path packages/mdbook-trpl
+      run: cargo install --path mdbook-check/packages/mdbook-trpl
     - name: Install aspell
       run: sudo apt-get install aspell
     - name: Install shellcheck
@@ -104,7 +108,7 @@ jobs:
         
         find . -name "*.sh" -type f "${find_args[@]}" -exec shellcheck {} +
     - name: Spellcheck
-      run: bash ci/spellcheck.sh list
+      run: bash mdbook-check/ci/spellcheck.sh list
     - name: Lint for local file paths
       run: |
         mdbook build
