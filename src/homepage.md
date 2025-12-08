@@ -11,6 +11,7 @@
   - [AFL](fuzz/afl/index.md)
 - [Hardware Security](hw/index.md)
   - [ARM](hw/arm/index.md)
+  - [RISC-V](hw/riscv/index.md)
 - [Papers](papers/index.md)
 
 ## 项目愿景

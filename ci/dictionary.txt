@@ -472,6 +472,8 @@ retweet
 rewordings
 rint
 ripgrep
+riscv
+RISCV
 Rumbul
 runnable
 runtime
